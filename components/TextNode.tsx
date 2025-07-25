@@ -16,8 +16,8 @@ const TextNode: React.FC<NodeProps> = ({ data }) => {
       <div className="px-3 py-2 text-sm text-gray-800">
         {data.message || "test message 2"}
       </div>
-      <Handle type="target" position={Position.Left} className="!bg-gray-400 w-2 h-2 -ml-1" />
-      <Handle type="source" position={Position.Right} className="!bg-gray-400 w-2 h-2 -mr-1" />
+      <Handle type="target" position={Position.Left} className="!bg-gray-400 w-4 h-4 -ml-2 hover:!bg-blue-500 transition-colors" />
+      <Handle type="source" position={Position.Right} className="!bg-gray-400 w-4 h-4 -mr-2 hover:!bg-blue-500 transition-colors" />
     </div>
   );
 };

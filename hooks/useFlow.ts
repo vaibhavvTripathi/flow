@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { useFlowStore } from "../store/flow";
-
-const LOCAL_STORAGE_KEY = "flowbuilder-data";
+import { useFlowStore } from '../store/flow';
 
 export function useFlow() {
   const nodes = useFlowStore((state) => state.nodes);
@@ -13,29 +10,16 @@ export function useFlow() {
   const addNode = useFlowStore((state) => state.addNode);
   const addEdge = useFlowStore((state) => state.addEdge);
   const onConnect = useFlowStore((state) => state.onConnect);
+  const deleteNode = useFlowStore((state) => state.deleteNode);
+  const deleteEdge = useFlowStore((state) => state.deleteEdge);
   const selectedNodeId = useFlowStore((state) => state.selectedNodeId);
   const setSelectedNodeId = useFlowStore((state) => state.setSelectedNodeId);
-  const clearSelectedNodeId = useFlowStore(
-    (state) => state.clearSelectedNodeId
-  );
+  const clearSelectedNodeId = useFlowStore((state) => state.clearSelectedNodeId);
   const error = useFlowStore((state) => state.error);
+  const success = useFlowStore((state) => state.success);
   const saveFlow = useFlowStore((state) => state.saveFlow);
   const clearError = useFlowStore((state) => state.clearError);
-
-  // Load from localStorage on first use
-  useEffect(() => {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved) {
-      try {
-        const { nodes: savedNodes, edges: savedEdges } = JSON.parse(saved);
-        if (Array.isArray(savedNodes) && Array.isArray(savedEdges)) {
-          setNodes(savedNodes);
-          setEdges(savedEdges);
-        }
-      } catch {}
-    }
-    // eslint-disable-next-line
-  }, []);
+  const clearSuccess = useFlowStore((state) => state.clearSuccess);
 
   return {
     nodes,
@@ -47,11 +31,15 @@ export function useFlow() {
     addNode,
     addEdge,
     onConnect,
+    deleteNode,
+    deleteEdge,
     selectedNodeId,
     setSelectedNodeId,
     clearSelectedNodeId,
     error,
+    success,
     saveFlow,
     clearError,
+    clearSuccess,
   };
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,7 +21,16 @@ const NodesPanel: React.FC<{ onAddNode?: (type: string) => void }> = ({ onAddNod
             className="border-blue-600 text-blue-600 bg-white rounded-none hover:bg-blue-50 focus:ring-0 focus:outline-none font-normal px-4 py-2 justify-start"
           >
             <span className="inline-flex items-center gap-2">
-              <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M7 8h10M7 12h6m-6 4h10" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7 8h10M7 12h6m-6 4h10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
               {node.label}
             </span>
           </Button>
@@ -31,4 +40,4 @@ const NodesPanel: React.FC<{ onAddNode?: (type: string) => void }> = ({ onAddNod
   );
 };
 
-export default NodesPanel; 
+export default NodesPanel;

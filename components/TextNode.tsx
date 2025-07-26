@@ -36,7 +36,7 @@ const TextNode: React.FC<NodeProps> = ({ data, selected }) => {
           </svg>
         </span>
       </div>
-      <div className="px-3 py-2 text-sm text-gray-800">{data.message || 'test message 2'}</div>
+      <div className="px-3 py-2 text-sm text-gray-800">{data.message || 'click to add message'}</div>
       <Handle
         type="target"
         position={Position.Left}

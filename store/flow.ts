@@ -10,6 +10,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   Connection,
+  MarkerType,
 } from 'reactflow';
 
 interface FlowState {
@@ -71,9 +72,13 @@ export const useFlowStore = create<FlowState>((set, get) => ({
           ...get().edges,
           {
             ...connection,
-            id: `${source}-${target}`, // Simple ID generation
+            id: `${source}-${target}`,
             source,
             target,
+            type: 'bezier',
+            markerEnd: {
+              type: MarkerType.ArrowClosed,
+            },
           } as Edge,
         ],
       });

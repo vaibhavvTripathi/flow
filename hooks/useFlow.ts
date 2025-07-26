@@ -1,6 +1,10 @@
-import { useFlowStore } from '../store/flow';
+// This hook provides a clean interface to our Zustand store. It's a simple wrapper that
+// exposes all the store's state and actions, making it easy to use in React components.
+
+import { useFlowStore } from "../store/flow";
 
 export function useFlow() {
+  // Select all the state and actions we need from the store
   const nodes = useFlowStore((state) => state.nodes);
   const edges = useFlowStore((state) => state.edges);
   const setNodes = useFlowStore((state) => state.setNodes);
@@ -21,6 +25,7 @@ export function useFlow() {
   const clearError = useFlowStore((state) => state.clearError);
   const clearSuccess = useFlowStore((state) => state.clearSuccess);
 
+  // Return everything as a single object for easy destructuring in components
   return {
     nodes,
     edges,

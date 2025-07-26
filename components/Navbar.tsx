@@ -12,16 +12,26 @@ const Navbar: React.FC = () => {
       <div className="text-xl font-bold text-gray-800">Flow Builder</div>
       <Button
         variant="outline"
-        className="border-blue-600 text-blue-600 bg-white rounded-none hover:bg-blue-50 focus:ring-0 focus:outline-none font-normal px-6 py-2"
+        className="border-blue-600 text-blue-600 bg-white rounded-none hover:text-blue-800 focus:ring-2 focus:ring-blue-300 focus:outline-none font-normal px-6 py-2 transition-colors duration-200"
         onClick={saveFlow}
       >
         Save Changes
       </Button>
-
       {/* Notifications */}
-      {error && <Notification message={error} type="error" onClose={clearError} />}
-
-      {success && <Notification message={success} type="success" onClose={clearSuccess} />}
+      {error && (
+        <Notification
+          message={error}
+          type="error"
+          onClose={clearError}
+        />
+      )}
+      {success && (
+        <Notification
+          message={success}
+          type="success"
+          onClose={clearSuccess}
+        />
+      )}
     </nav>
   );
 };
